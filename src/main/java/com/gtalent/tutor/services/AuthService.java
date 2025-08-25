@@ -35,7 +35,7 @@ public class AuthService {
         Optional<User> userOptional = userRepository.findByUsername(request.getUsername());
         if (userOptional.isPresent()) {
             User user = userOptional.get();
-            if (request.getPassword().equals(user.getPassword())) {
+            if (passwordEncoder.matches(request.getPassword(), user.getPassword())) {
                 String jwtToken = jwtService.generateToken(user);
                 return new AuthResponse(jwtToken);
             }

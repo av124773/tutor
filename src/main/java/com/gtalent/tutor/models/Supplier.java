@@ -1,6 +1,5 @@
 package com.gtalent.tutor.models;
 
-import com.gtalent.tutor.responses.ProductResponse;
 import jakarta.persistence.*;
 
 import java.util.List;

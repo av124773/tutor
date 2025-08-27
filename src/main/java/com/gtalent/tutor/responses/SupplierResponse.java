@@ -1,12 +1,7 @@
 package com.gtalent.tutor.responses;
 
 import com.gtalent.tutor.models.Supplier;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class SupplierResponse {

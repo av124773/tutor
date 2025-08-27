@@ -116,7 +116,7 @@ public class UserController {
         return ResponseEntity.ok(results);
     }
 
-    private GetUserResponse toGetUserResponse (User user) {
-        return new GetUserResponse(user.getId(), user.getUsername());
-    }
+    // private GetUserResponse toGetUserResponse (User user) {
+    //     return new GetUserResponse(user.getId(), user.getUsername());
+    // }
 }

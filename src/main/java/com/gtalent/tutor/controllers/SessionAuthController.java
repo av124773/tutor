@@ -2,10 +2,8 @@ package com.gtalent.tutor.controllers;
 
 import com.gtalent.tutor.models.User;
 import com.gtalent.tutor.repositories.UserRepository;
-import com.gtalent.tutor.requests.CreateUserRequest;
 import com.gtalent.tutor.requests.LoginRequest;
 import com.gtalent.tutor.requests.RegisterRequest;
-import com.gtalent.tutor.responses.GetUserResponse;
 import com.gtalent.tutor.services.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;

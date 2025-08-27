@@ -2,8 +2,6 @@ package com.gtalent.tutor.responses;
 
 import com.gtalent.tutor.models.User;
 
-import java.util.List;
-
 public class GetUserResponse {
     private  int id;
     private String username;

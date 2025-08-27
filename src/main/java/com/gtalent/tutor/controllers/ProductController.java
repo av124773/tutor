@@ -2,11 +2,9 @@ package com.gtalent.tutor.controllers;
 
 import com.gtalent.tutor.models.Product;
 import com.gtalent.tutor.models.Supplier;
-import com.gtalent.tutor.models.User;
 import com.gtalent.tutor.repositories.ProductRepository;
 import com.gtalent.tutor.repositories.SupplierRepository;
 import com.gtalent.tutor.requests.CreateProductRequest;
-import com.gtalent.tutor.requests.CreateUserRequest;
 import com.gtalent.tutor.requests.UpdateProductRequest;
 import com.gtalent.tutor.responses.*;
 

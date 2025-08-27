@@ -9,6 +9,12 @@ import com.gtalent.tutor.requests.CreateProductRequest;
 import com.gtalent.tutor.requests.CreateUserRequest;
 import com.gtalent.tutor.requests.UpdateProductRequest;
 import com.gtalent.tutor.responses.*;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +25,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/products")
 @CrossOrigin("*")
+@Tag(name = "產品", description = "產品控制器，提供產品資訊新增、刪除、更新、查詢功能。")
 public class ProductController {
     private final ProductRepository productRepository;
     private final SupplierRepository supplierRepository;
@@ -29,6 +36,11 @@ public class ProductController {
         this.supplierRepository = supplierRepository;
     }
 
+    @Operation(summary = "取得所有產品", description = "")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "操作成功"),
+        @ApiResponse(responseCode = "403", description = "權限不足")
+    })
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
         List<Product> products = productRepository.findAll();
@@ -39,6 +51,11 @@ public class ProductController {
         }).toList());
     }
 
+    @Operation(summary = "取得指定產品", description = "")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "操作成功"),
+        @ApiResponse(responseCode = "403", description = "權限不足")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable int id ) {
         Optional<Product> product = productRepository.findById(id);
@@ -53,6 +70,11 @@ public class ProductController {
 
     }
 
+    @Operation(summary = "跟新指定產品", description = "")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "操作成功"),
+        @ApiResponse(responseCode = "403", description = "權限不足")
+    })
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponse> updateProductById(@PathVariable int id, @RequestBody UpdateProductRequest request) {
         Optional<Product> product = productRepository.findById(id);
@@ -69,6 +91,11 @@ public class ProductController {
         }
     }
 
+    @Operation(summary = "創造新產品", description = "")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "操作成功"),
+        @ApiResponse(responseCode = "403", description = "權限不足")
+    })
     @PostMapping()
     public ResponseEntity<ProductResponse> createProducts(@RequestBody CreateProductRequest request) {
         Optional<Supplier> supplier = supplierRepository.findById(request.getSupplierId());
@@ -91,6 +118,11 @@ public class ProductController {
 
     }
 
+    @Operation(summary = "刪除指定產品", description = "")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "操作成功"),
+        @ApiResponse(responseCode = "403", description = "權限不足")
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
 
